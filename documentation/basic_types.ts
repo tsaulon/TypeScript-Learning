@@ -62,7 +62,7 @@ function basicTypes(): void{
     let list: Array<any> = [1, false, "huehue", 20.9]
     console.log(list.toString())
 
-    //  Type Assertions
+    //  Type Assertions and casting
     let someValue: any = "this is a string"
     let strLength1: number = (<string>someValue).length;
     let strLength2: number = (someValue as string).length;
