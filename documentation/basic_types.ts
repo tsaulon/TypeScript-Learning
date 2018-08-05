@@ -61,6 +61,16 @@ function basicTypes(): void{
     notSure = false //  boolean
     let list: Array<any> = [1, false, "huehue", 20.9]
     console.log(list.toString())
+
+    //  Type Assertions
+    let someValue: any = "this is a string"
+    let strLength1: number = (<string>someValue).length;
+    let strLength2: number = (someValue as string).length;
+
+    console.log(`string length of '${someValue}' plus 2 is ${strLength1 + 2}`);
+    console.log(`string length of '${someValue}' plus 2 is ${strLength2 + 2}`);
+    console.log(`string length of '${someValue}' plus 2 is ${(<string>someValue).length + 2}`);
+    console.log(`string length of '${someValue}' plus 2 is ${(someValue as string).length + 2}`);
 }
 
 basicTypes()

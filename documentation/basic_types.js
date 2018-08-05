@@ -66,5 +66,13 @@ function basicTypes() {
     notSure = false; //  boolean
     var list = [1, false, "huehue", 20.9];
     console.log(list.toString());
+    //  Type Assertions
+    var someValue = "this is a string";
+    var strLength1 = someValue.length;
+    var strLength2 = someValue.length;
+    console.log("string length of '" + someValue + "' plus 2 is " + (strLength1 + 2));
+    console.log("string length of '" + someValue + "' plus 2 is " + (strLength2 + 2));
+    console.log("string length of '" + someValue + "' plus 2 is " + (someValue.length + 2));
+    console.log("string length of '" + someValue + "' plus 2 is " + (someValue.length + 2));
 }
 basicTypes();
