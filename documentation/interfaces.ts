@@ -68,6 +68,21 @@ function thirdInterface(){
 
 thirdInterface()
 
+function fourthInterface(){
+
+    // Interface with read-only properties
+    interface Point{
+        readonly x: number,
+        readonly y: number
+    }
+
+    let p1: Point = {x: 10, y: 0}
+
+    //  p1.x = 5    Error: illegal change to property
+}
+
+fourthInterface()
+
 
 /*
  *  Interfaces
@@ -76,5 +91,7 @@ thirdInterface()
  *  >   Captures only properties identical to interface properties
  *  >   Does not generate any source code
  * 
- * 
+ *  Variable Prefixes
+ *  >   Use readonly when prefixing properties
+ *  >   Use const when prefixing variables
  */

@@ -38,6 +38,16 @@ function thirdInterface() {
     console.log(mySquare);
 }
 thirdInterface();
+function fourthInterface() {
+    var p1 = { x: 10, y: 0 };
+    try {
+        p1 = { x: 20, y: 20 };
+    }
+    catch (e) {
+        console.log(e.message);
+    }
+}
+fourthInterface();
 /*
  *  Interfaces
  *  >   Virtually type checks without using any class instances
