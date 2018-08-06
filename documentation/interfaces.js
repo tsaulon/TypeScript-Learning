@@ -40,14 +40,22 @@ function thirdInterface() {
 thirdInterface();
 function fourthInterface() {
     var p1 = { x: 10, y: 0 };
-    try {
-        p1 = { x: 20, y: 20 };
-    }
-    catch (e) {
-        console.log(e.message);
-    }
+    //  p1.x = 5    Error: illegal change to property
 }
 fourthInterface();
+function fifthInterface() {
+    var mySearch;
+    mySearch = function (source, subString) {
+        return source.search(subString) > -1;
+    };
+    console.log(mySearch("Blood Harvest", "ood"));
+}
+fifthInterface();
+function sixthInterface() {
+    var arr = ["Tyrone", "Ainsley", "Atlas"];
+    console.log(arr[0] + ' + ' + arr[1] + ' = ' + arr[2]);
+}
+sixthInterface();
 /*
  *  Interfaces
  *  >   Virtually type checks without using any class instances
@@ -55,5 +63,7 @@ fourthInterface();
  *  >   Captures only properties identical to interface properties
  *  >   Does not generate any source code
  *
- *
+ *  Variable Prefixes
+ *  >   Use readonly when prefixing properties
+ *  >   Use const when prefixing variables
  */ 

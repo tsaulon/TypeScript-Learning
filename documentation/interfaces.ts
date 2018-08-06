@@ -83,6 +83,36 @@ function fourthInterface(){
 
 fourthInterface()
 
+function fifthInterface(){
+
+    //  Interface with function types
+    interface SearchFunc{
+        (source: string, subString: string): boolean;
+    }
+
+    let mySearch: SearchFunc;
+    mySearch = (source: string, subString: string) => {
+        return source.search(subString) > -1
+    }
+
+    console.log(mySearch("Blood Harvest", "ood"))
+}
+
+fifthInterface()
+
+function sixthInterface(){
+
+    //  Interface with index types
+    interface StringArray{
+        [index: number]: string;
+    }
+
+    let arr: StringArray = ["Tyrone", "Ainsley", "Atlas"]
+
+    console.log(arr[0] + ' + ' + arr[1] + ' = ' + arr[2])
+}
+
+sixthInterface()
 
 /*
  *  Interfaces
@@ -94,4 +124,8 @@ fourthInterface()
  *  Variable Prefixes
  *  >   Use readonly when prefixing properties
  *  >   Use const when prefixing variables
+ * 
+ *  TODO:   
+ *  >   Pick up at using interfaces containing indexable types with classes.
+ *  >   Read through TypeScript classes first before this.
  */
