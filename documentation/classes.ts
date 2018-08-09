@@ -1,8 +1,7 @@
-function declaringClasses() {
+function declaringClasses(){
   class Greeter {
-
-    greeting: string
-    constructor(greeting: string) {
+    greeting: string;
+    constructor (greeting: string) {
         this.greeting = greeting;
      }
     greet() {
@@ -11,11 +10,8 @@ function declaringClasses() {
   }
 
   let greeter = new Greeter("World!");
-
   console.log(greeter.greet())
 }
-
-declaringClasses();
 
 function inheritance(){
     class Animal {
@@ -37,6 +33,8 @@ function inheritance(){
     dog.bark();
 
 }
+
+inheritance();
 
 function complexInheritance(){
 
@@ -82,5 +80,41 @@ function complexInheritance(){
 
 complexInheritance();
 
+function propertyAccess(){
 
-inheritance();
+    class Foo {
+        
+        defaultt;    //  class member variables are public by default
+        public pubFoo;  //  class member can be publicly accessed
+        private privFoo;    //  class member cannot be directly accessed by entities outside the class
+        protected proFoo;   //  class member can only be accessed by derived classes of the same class hierarchy.
+        readonly roFoo; //  imitates the keyword 'const' in the context of classes.
+
+        constructor(defaultt: number, pubFoo: number, privFoo: number, proFoo: number){
+            this.defaultt = defaultt;
+            this.pubFoo = pubFoo;
+            this.privFoo = privFoo;
+            this.proFoo = proFoo;
+        }
+    }
+
+    class Bar extends Foo{
+
+        constructor(defaultt: number, pubFoo: number, privFoo: number, proFoo: number){
+            super(defaultt, pubFoo, privFoo, proFoo);
+        }
+        proteccc(){
+            return this.proFoo;
+        }
+    }
+
+    let foo: Foo = new Foo(1, 2, 3, 4);
+    let bar: Bar = new Bar(1, 2, 3, 4);
+    console.log(foo.defaultt);
+    console.log(foo.pubFoo);
+    //  console.log(foo.privFoo);   Not accessible
+    //  console.log(foo.proFoo);    Not accessible
+    console.log(bar.proteccc());
+}
+
+propertyAccess();

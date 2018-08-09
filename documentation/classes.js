@@ -24,7 +24,6 @@ function declaringClasses() {
     var greeter = new Greeter("World!");
     console.log(greeter.greet());
 }
-declaringClasses();
 function inheritance() {
     var Animal = /** @class */ (function () {
         function Animal() {
@@ -51,3 +50,72 @@ function inheritance() {
     dog.bark();
 }
 inheritance();
+function complexInheritance() {
+    var Animal = /** @class */ (function () {
+        function Animal(name) {
+            this.name = name;
+        }
+        Animal.prototype.move = function (distanceInMetres) {
+            console.log(this.name + " moved " + distanceInMetres + "m.");
+        };
+        return Animal;
+    }());
+    var Snake = /** @class */ (function (_super) {
+        __extends(Snake, _super);
+        function Snake(name) {
+            return _super.call(this, name) || this;
+        }
+        Snake.prototype.move = function (distanceInMetres) {
+            if (distanceInMetres === void 0) { distanceInMetres = 5; }
+            console.log("Slithering... ");
+            _super.prototype.move.call(this, distanceInMetres);
+        };
+        return Snake;
+    }(Animal));
+    var Horse = /** @class */ (function (_super) {
+        __extends(Horse, _super);
+        function Horse(name) {
+            return _super.call(this, name) || this;
+        }
+        Horse.prototype.move = function (distanceInMetres) {
+            if (distanceInMetres === void 0) { distanceInMetres = 45; }
+            console.log("Galloping... ");
+            _super.prototype.move.call(this, distanceInMetres);
+        };
+        return Horse;
+    }(Animal));
+    var peter = new Snake("Peter the snake"); // Implicit declaration of snake datatype
+    var harry = new Horse("Harry the horse"); //  Explicit declaration of Animal datatype
+    peter.move();
+    harry.move(100); //  refers to the base class function 'move' and requires an argument.
+}
+complexInheritance();
+function propertyAccess() {
+    var Foo = /** @class */ (function () {
+        function Foo(defaultt, pubFoo, privFoo, proFoo) {
+            this.defaultt = defaultt;
+            this.pubFoo = pubFoo;
+            this.privFoo = privFoo;
+            this.proFoo = proFoo;
+        }
+        return Foo;
+    }());
+    var Bar = /** @class */ (function (_super) {
+        __extends(Bar, _super);
+        function Bar(defaultt, pubFoo, privFoo, proFoo) {
+            return _super.call(this, defaultt, pubFoo, privFoo, proFoo) || this;
+        }
+        Bar.prototype.proteccc = function () {
+            return this.proFoo;
+        };
+        return Bar;
+    }(Foo));
+    var foo = new Foo(1, 2, 3, 4);
+    var bar = new Bar(1, 2, 3, 4);
+    console.log(foo.defaultt);
+    console.log(foo.pubFoo);
+    //  console.log(foo.privFoo);   Not accessible
+    //  console.log(foo.proFoo);    Not accessible
+    console.log(bar.proteccc());
+}
+propertyAccess();
