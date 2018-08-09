@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-function declaringClasses() {
+function declaring() {
     var Greeter = /** @class */ (function () {
         function Greeter(greeting) {
             this.greeting = greeting;
@@ -24,7 +24,8 @@ function declaringClasses() {
     var greeter = new Greeter("World!");
     console.log(greeter.greet());
 }
-function inheritance() {
+declaring();
+function inher() {
     var Animal = /** @class */ (function () {
         function Animal() {
         }
@@ -49,8 +50,8 @@ function inheritance() {
     dog.move(10);
     dog.bark();
 }
-inheritance();
-function complexInheritance() {
+inher();
+function complexInher() {
     var Animal = /** @class */ (function () {
         function Animal(name) {
             this.name = name;
@@ -89,8 +90,8 @@ function complexInheritance() {
     peter.move();
     harry.move(100); //  refers to the base class function 'move' and requires an argument.
 }
-complexInheritance();
-function propertyAccess() {
+complexInher();
+function propertyAcc() {
     var Foo = /** @class */ (function () {
         function Foo(defaultt, pubFoo, privFoo, proFoo) {
             this.defaultt = defaultt;
@@ -117,5 +118,47 @@ function propertyAccess() {
     //  console.log(foo.privFoo);   Not accessible
     //  console.log(foo.proFoo);    Not accessible
     console.log(bar.proteccc());
+    console.log(foo.roFoo);
 }
-propertyAccess();
+propertyAcc();
+function simpleAcc() {
+    var Employee = /** @class */ (function () {
+        function Employee() {
+        }
+        return Employee;
+    }());
+    var emp = new Employee();
+    emp.fullName = "Tyrone Saulon";
+    console.log(emp.fullName);
+    if (emp.fullName) {
+        console.log(emp.fullName);
+    }
+}
+simpleAcc();
+/*
+
+GETTERS AND SETTERS ARE ONLY COMPATIBLE WITH SCRIPTS TARGETING ECMA5+ AND UP.
+function complexAcc(){
+
+    let passcode = "secret"
+    class Employee{
+        _fullName: string;
+
+        get fullName(): string{
+            return this.fullName;
+        }
+        set fullName(newName: string){
+            passcode && passcode === "secret" ? this._fullName = newName : console.log("Unauthorized employee!");
+        }
+    }
+
+    let emp = new Employee();
+    emp._fullName = "Tyrone Saulon"
+    if(emp.fullName){
+        console.log(emp.fullName);
+    }
+}
+
+complexAcc();
+
+*/ 

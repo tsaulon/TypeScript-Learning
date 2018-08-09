@@ -1,4 +1,4 @@
-function declaringClasses(){
+function declaring(){
   class Greeter {
     greeting: string;
     constructor (greeting: string) {
@@ -12,8 +12,9 @@ function declaringClasses(){
   let greeter = new Greeter("World!");
   console.log(greeter.greet())
 }
+declaring();
 
-function inheritance(){
+function inher(){
     class Animal {
         move(distanceInMetres: number = 0){
             console.log(`The animal moved ${distanceInMetres}m.`)
@@ -34,9 +35,9 @@ function inheritance(){
 
 }
 
-inheritance();
+inher();
 
-function complexInheritance(){
+function complexInher(){
 
         class Animal {
             name: string;
@@ -78,9 +79,9 @@ function complexInheritance(){
 
 }
 
-complexInheritance();
+complexInher();
 
-function propertyAccess(){
+function propertyAcc(){
 
     class Foo {
         
@@ -115,6 +116,50 @@ function propertyAccess(){
     //  console.log(foo.privFoo);   Not accessible
     //  console.log(foo.proFoo);    Not accessible
     console.log(bar.proteccc());
+    console.log(foo.roFoo);
 }
 
-propertyAccess();
+propertyAcc();
+
+function simpleAcc(){
+    class Employee{
+        fullName: string;
+    }
+
+    let emp = new Employee();
+    emp.fullName = "Tyrone Saulon"
+    console.log(emp.fullName);
+    if(emp.fullName){
+        console.log(emp.fullName);
+    }
+}
+
+simpleAcc();
+
+/*
+
+GETTERS AND SETTERS ARE ONLY COMPATIBLE WITH SCRIPTS TARGETING ECMA5+ AND UP.
+function complexAcc(){
+
+    let passcode = "secret"
+    class Employee{
+        _fullName: string;
+
+        get fullName(): string{
+            return this.fullName;
+        }
+        set fullName(newName: string){
+            passcode && passcode === "secret" ? this._fullName = newName : console.log("Unauthorized employee!");
+        }
+    }
+
+    let emp = new Employee();
+    emp._fullName = "Tyrone Saulon"
+    if(emp.fullName){
+        console.log(emp.fullName);
+    }
+}
+
+complexAcc();
+
+*/
