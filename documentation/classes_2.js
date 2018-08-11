@@ -72,6 +72,40 @@ function abstractClasses() {
     department = new Accounting();
     department.printName();
     department.printMeeting();
-    department.generateReports();
+    //  department.generateReports();   Error: Method does not exist on declared abstract type.
+    //  Access to above method must have 'department' declared as of datatype 'Accounting'
+    //  accessing both abstract base methods and derived methods.
 }
 abstractClasses();
+function advTechniques_1() {
+    var Greeter = /** @class */ (function () {
+        function Greeter(greeting) {
+            this.greeting = greeting;
+        }
+        Greeter.prototype.greet = function () {
+            return "Hello, " + this.greeting + "!";
+        };
+        return Greeter;
+    }());
+    var greeter = new Greeter("world"); //  'new' keyword references the class constructor
+    console.log(greeter.greet());
+}
+advTechniques_1();
+function advTechniques_2() {
+    var Greeter = /** @class */ (function () {
+        function Greeter() {
+        }
+        Greeter.prototype.greet = function () {
+            return this.greeting ? this.greeting : Greeter.standardGreeting;
+        };
+        Greeter.standardGreeting = "Hello, there!";
+        return Greeter;
+    }());
+    var greeter1 = new Greeter();
+    console.log(greeter1.greet());
+    var greeterMaker = Greeter;
+    greeterMaker.standardGreeting = "Hey there!"; // referencing the static property.
+    var greeter2 = new Greeter();
+    console.log(greeter2.greet());
+}
+advTechniques_2();

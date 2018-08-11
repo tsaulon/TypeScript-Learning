@@ -76,3 +76,42 @@ function abstractClasses(){
 }
 
 abstractClasses()
+
+function advTechniques_1(){
+
+    class Greeter {
+        constructor(public greeting: string) { }
+        greet(): string{
+            return `Hello, ${this.greeting}!`;
+        }
+    }
+
+    let greeter: Greeter = new Greeter("world");    //  'new' keyword references the class constructor
+    console.log(greeter.greet());
+}
+
+advTechniques_1();
+
+function advTechniques_2() {
+
+    //  Manipulating a class' static variables.
+    class Greeter{
+
+        static standardGreeting: string = "Hello, there!";
+        greeting: string;
+        greet(): string{
+            return this.greeting ? this.greeting : Greeter.standardGreeting;
+        }
+    }
+
+    let greeter1: Greeter = new Greeter();
+    console.log(greeter1.greet()) 
+
+    let greeterMaker: typeof Greeter = Greeter;     //  TODO: Research what is happening in this line.
+    greeterMaker.standardGreeting = "Hey there!";   // Making change to the static property.
+
+    let greeter2: Greeter = new Greeter();
+    console.log(greeter2.greet());  //  referencing new change to the static property of Greeter.
+}
+
+advTechniques_2();
