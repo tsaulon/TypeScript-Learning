@@ -71,6 +71,8 @@ function abstractClasses(){
         department.printName();
         department.printMeeting();
         //  department.generateReports();   Error: Method does not exist on declared abstract type.
+        //  Access to above method must have 'department' declared as of datatype 'Accounting'
+        //  accessing both abstract base methods and derived methods.
 }
 
 abstractClasses()
