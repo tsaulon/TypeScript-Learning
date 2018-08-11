@@ -107,7 +107,7 @@ function advTechniques_2() {
     let greeter1: Greeter = new Greeter();
     console.log(greeter1.greet()) 
 
-    let greeterMaker: typeof Greeter = Greeter;     //  TODO: Research what is happening in this line.
+    let greeterMaker: typeof Greeter = Greeter;     //  Declare variable to hold the class itself (..rather than the instance type)
     greeterMaker.standardGreeting = "Hey there!";   // Making change to the static property.
 
     let greeter2: Greeter = new Greeter();
@@ -115,3 +115,21 @@ function advTechniques_2() {
 }
 
 advTechniques_2();
+
+function interfaceClasses(){
+
+    interface Point2D{
+        x: number,
+        y: number
+    }
+
+    interface Point3D extends Point2D{
+        z: number
+    }
+
+    let point: Point3D = {x: 0, y: 0, z: 12}
+
+    console.log(`x: ${point.x}, y: ${point.y}, z: ${point.z}`)
+}
+
+interfaceClasses();
