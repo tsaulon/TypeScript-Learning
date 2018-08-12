@@ -92,6 +92,7 @@ function advTechniques_1() {
 }
 advTechniques_1();
 function advTechniques_2() {
+    //  Manipulating a class' static variables.
     var Greeter = /** @class */ (function () {
         function Greeter() {
         }
@@ -103,9 +104,14 @@ function advTechniques_2() {
     }());
     var greeter1 = new Greeter();
     console.log(greeter1.greet());
-    var greeterMaker = Greeter;
-    greeterMaker.standardGreeting = "Hey there!"; // referencing the static property.
+    var greeterMaker = Greeter; //  Declare variable to hold the class itself (..rather than the instance type)
+    greeterMaker.standardGreeting = "Hey there!"; // Making change to the static property.
     var greeter2 = new Greeter();
-    console.log(greeter2.greet());
+    console.log(greeter2.greet()); //  referencing new change to the static property of Greeter.
 }
 advTechniques_2();
+function interfaceClasses() {
+    var point = { x: 0, y: 0, z: 12 };
+    console.log("x: " + point.x + ", y: " + point.y + ", z: " + point.z);
+}
+interfaceClasses();
