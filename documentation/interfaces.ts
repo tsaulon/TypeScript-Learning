@@ -116,13 +116,14 @@ sixthInterface()
 
 function seventhInterface(){
 
-    //  Incorrect interface implementation for class types
+    //Interface implementation for class type and it's constructor
     interface ClockInterface{
         currentTime: Date;
         setTime(d: Date);
         //  new (hour: number, m: number);  Error: No signature for 'new'
         //  Note:   Only instance side is checked and the class implementation of interface cannot
         //          see the constructor signature of 'new'.
+        //          Constructor needs it's own independent interface
     } 
 
     class Clock implements ClockInterface{
@@ -138,6 +139,40 @@ function seventhInterface(){
 
 seventhInterface();
 
+function eighthInterface(){
+
+    //  CORRECT: Interface implementation for class type's constructor
+    interface ClockConstructor{
+        new(hour: number, minute: number): ClockInterface;
+    }
+
+    interface ClockInterface{
+        tick();
+    }
+
+    function createClock(ctor: ClockConstructor, hour: number, minute: number): ClockInterface{
+        return new ctor(hour, minute);
+    }
+
+    class DigitalClock implements ClockInterface{
+        constructor(h: number, m: number){}
+        tick(){
+            console.log("Beep beep!");
+        }
+    }
+
+    class AnalogClock implements ClockInterface{
+        constructor(h: number, m: number) {}
+        tick(){
+            console.log("Tick tock!");
+        }
+    }
+
+    let digital: DigitalClock = createClock(DigitalClock, 8, 30);
+    let analog: AnalogClock = createClock(AnalogClock, 10, 30);
+}
+
+eighthInterface();
 /*
  *  Interfaces
  *  >   Virtually type checks without using any class instances
