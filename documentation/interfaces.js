@@ -56,6 +56,51 @@ function sixthInterface() {
     console.log(arr[0] + ' + ' + arr[1] + ' = ' + arr[2]);
 }
 sixthInterface();
+function seventhInterface() {
+    var Clock = /** @class */ (function () {
+        function Clock(h, m) {
+        }
+        Clock.prototype.setTime = function (d) {
+            this.currentTime = d;
+        };
+        return Clock;
+    }());
+}
+seventhInterface();
+function eighthInterface() {
+    function createClock(ctor, hour, minute) {
+        return new ctor(hour, minute);
+    }
+    var DigitalClock = /** @class */ (function () {
+        function DigitalClock(h, m) {
+        }
+        DigitalClock.prototype.tick = function () {
+            console.log("Beep beep!");
+        };
+        return DigitalClock;
+    }());
+    var AnalogClock = /** @class */ (function () {
+        function AnalogClock(h, m) {
+        }
+        AnalogClock.prototype.tick = function () {
+            console.log("Tick tock!");
+        };
+        return AnalogClock;
+    }());
+    var digital = createClock(DigitalClock, 8, 30);
+    var analog = createClock(AnalogClock, 10, 30);
+}
+eighthInterface();
+function ninthInterface() {
+    var square = {};
+    square.color = "red";
+    square.sideLength = 25;
+    square.details = function () {
+        return "(Square) => color: " + square.color + ", sideLength: " + square.sideLength;
+    };
+    console.log(square.details());
+}
+ninthInterface();
 /*
  *  Interfaces
  *  >   Virtually type checks without using any class instances
@@ -66,4 +111,8 @@ sixthInterface();
  *  Variable Prefixes
  *  >   Use readonly when prefixing properties
  *  >   Use const when prefixing variables
+ *
+ *  TODO:
+ *  >   Pick up at using interfaces containing indexable types with classes.
+ *  >   Read through TypeScript classes first before this.
  */ 

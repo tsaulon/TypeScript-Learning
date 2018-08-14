@@ -173,6 +173,56 @@ function eighthInterface(){
 }
 
 eighthInterface();
+
+function ninthInterface(){
+
+    //  Extending interfaces.
+    interface Shape{
+        color: string;
+        details(): string;
+    }
+
+    interface Square extends Shape{
+        sideLength: number;
+    }
+
+    let square = <Square>{}
+    square.color = "red";
+    square.sideLength = 25;
+    square.details = (): string => {
+        return `(Square) => color: ${square.color}, sideLength: ${square.sideLength}`
+    }
+
+    console.log(square.details());
+}
+
+ninthInterface();
+
+function tenthInterface(){
+
+    //  Extending multiple interfaces.
+    interface Shape{
+        color: string;
+    }
+
+    interface PenStroke{
+        penWidth: number;
+    }
+
+    interface Square extends Shape, PenStroke{
+        sideLength: number;
+    }
+
+    let square: Square = <Square>{};    //  declare empty object of type Square
+    square.color = "red";
+    square.penWidth = 100;
+    square.sideLength = 50;
+}
+
+tenthInterface();
+
+//  TODO: Go over Hybrid Types and Interfaces Extending Classes (Interfaces)
+
 /*
  *  Interfaces
  *  >   Virtually type checks without using any class instances
