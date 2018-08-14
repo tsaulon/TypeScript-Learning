@@ -114,6 +114,30 @@ function sixthInterface(){
 
 sixthInterface()
 
+function seventhInterface(){
+
+    //  Incorrect interface implementation for class types
+    interface ClockInterface{
+        currentTime: Date;
+        setTime(d: Date);
+        //  new (hour: number, m: number);  Error: No signature for 'new'
+        //  Note:   Only instance side is checked and the class implementation of interface cannot
+        //          see the constructor signature of 'new'.
+    } 
+
+    class Clock implements ClockInterface{
+        currentTime: Date;
+
+        constructor(h: number, m: number) { }
+        
+        setTime(d: Date){
+            this.currentTime = d;
+        }
+    }
+}
+
+seventhInterface();
+
 /*
  *  Interfaces
  *  >   Virtually type checks without using any class instances
